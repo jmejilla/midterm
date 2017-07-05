@@ -39,10 +39,8 @@
           <input type="checkbox" ng-model="todo.done" />
           <span ng-hide="editing" ng-click="editing = true" ng-class="{'done':todo.done}">{{todo.title}}</span>
           <br>
-          <span ng-hide="editing" ng-click="editing = true" ng-class="{'done':todo.done}">To Be Completed By:  {{todo.date}}</span>
-          <span ng-show="editing" ng-submit="editing = false" ng-class="{'done':todo.done}">{{todo.title}}</span>
-          <span ng-show="editing" ng-submit="editing = false" ng-class="{'done':todo.done}">To Be Completed By: {{todo.date}}</span>
-                  <form ng-show="editing" ng-submit="editing = false">
+          <span ng-hide="editing" ng-click="editing = true" ng-class="{'done':todo.done}"> To Be Completed By: {{todo.date}}</span>
+                  <form ng-show="editing" ng-submit="saveNew(); editing = false">
                     <label>Name:</label>
                     <input type="text" ng-model="todo.title" placeholder="Name" ng-required/>
                     <label>Date:</label>

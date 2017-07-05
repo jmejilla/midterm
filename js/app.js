@@ -20,5 +20,11 @@ angular.module('ToDo',[]).
             myLocalStorage.remove('item', $scope.todos)
             myLocalStorage.set('item', $scope.todos)
         }
+        
+        $scope.saveNew = function(){
+            console.log($scope.todos)
+            $scope.editing = false
+            myLocalStorage.set('item', $scope.todos)
+        }
 
     }])
