@@ -8,7 +8,7 @@ function getAnItem(key) {
 return JSON.parse(localStorage.getItem(key));
 }
 
-function deletAnItem(key) {
+function deleteAnItem(key) {
 localStorage.removeItem(key);
 }
     
@@ -17,7 +17,7 @@ localStorage.removeItem(key);
 return {
 set: setAnItem,
 get: getAnItem,
-remove: deletAnItem,
+remove: deleteAnItem,
 }
 
 });

@@ -17,6 +17,8 @@ angular.module('ToDo',[]).
             $scope.todos = $scope.todos.filter(function(item){
                 return !item.done
             })
+            myLocalStorage.remove('item', $scope.todos)
+            myLocalStorage.set('item', $scope.todos)
         }
 
     }])

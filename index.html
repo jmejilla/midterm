@@ -35,7 +35,7 @@
   <button ng-click="clearCompleted()">Clear Completed</button>
   
   <ul>
-      <li class="subtitle" ng-repeat="todo in todos | orderBy: 'done'">
+      <li class="subtitle" ng-repeat="todo in todos | orderBy: 'done' track by $index">
           <input type="checkbox" ng-model="todo.done" />
           <span ng-hide="editing" ng-click="editing = true" ng-class="{'done':todo.done}">{{todo.title}}</span>
           <br>
