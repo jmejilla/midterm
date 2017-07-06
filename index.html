@@ -8,51 +8,81 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700i" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
-<body>
+<body class="hero is-primary is-bold is-fullheight">
 
-   <section class="hero is-success is-offset-one-quarter is-half">
+   <section>
    <h1 class="title is-1">My ToDo List</h1>
-  <div ng-controller="todoController" class="hero-body">
+  <div ng-controller="todoController" class="columns">
       <form name="frm" ng-submit="addToDo()">
-      <div class="field">
+      <div class="field column is-8">
       
       <p class="control">
     <input class="input" type="text" ng-model="newTodo" name="newTodo" placeholder="Add a task.." required>
     <input class="input" type="text" ng-model="newDate" name="newDate" placeholder="Add a due date.." required>
   </p>
-     <button ng-disabled="frm.$invalid" class="">Go</button>
+    <p class="control">
+     <button id="goButton" ng-disabled="frm.$invalid" class="button">Go</button>
+     </p>
+     <br>
       
+<!--
   <p class="control">
     <label class="checkbox">
       <input type="checkbox">
       
     </label>
   </p>
+-->
+  
+  <button class="button is-danger" ng-click="clearCompleted()">Clear Completed</button>
+  
+  <div id="instructions">
+  <p>
+      <i id="icon" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+  </p>
+  <p>
+      Select a task to edit!
+  </p>
+  
+  <p>
+      <i id="icon" class="fa fa-check-square-o" aria-hidden="true"></i>
+  </p>
+  <p>
+      Check the box to mark as completed!
+  </p>
+  </div>
+  
 </div>
 </form>
-  <button ng-click="clearCompleted()">Clear Completed</button>
+ 
   
+  <div class="" id="list">
   <ul>
       <li class="subtitle" ng-repeat="todo in todos | orderBy: 'done' track by $index">
           <input type="checkbox" ng-model="todo.done" />
-          <span ng-hide="editing" ng-click="editing = true" ng-class="{'done':todo.done}">{{todo.title}}</span>
+          <span id="title" ng-hide="editing" ng-click="editing = true" ng-class="{'done':todo.done}">{{todo.title}}</span>
           <br>
-          <span ng-hide="editing" ng-click="editing = true" ng-class="{'done':todo.done}"> To Be Completed By: {{todo.date}}</span>
+          <span id="date" ng-hide="editing" ng-click="editing = true" ng-class="{'done':todo.done}"> To Be Completed By: {{todo.date}}</span>
+          
                   <form ng-show="editing" ng-submit="saveNew(); editing = false">
-                    <label>Name:</label>
+                    <label>Edit Task:</label>
                     <input type="text" ng-model="todo.title" placeholder="Name" ng-required/>
-                    <label>Date:</label>
+                    <label>Edit Date:</label>
                     <input type="text" ng-model="todo.date" placeholder="Date" ng-required/>
                     <br/>
-                    <button class="btn" type="submit">Save</button>
+                    <button class="button is-hovered" type="submit">Save</button>
                   </form>
+                  <hr>
     
       </li>
   </ul>
+  </div>
 
   </div>
+  
 </section>
   
   

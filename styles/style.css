@@ -7,4 +7,65 @@ h1 {
     text-align: center;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
+    padding-top: 30px;
+}
+
+.field {
+    width:50vw;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+#instructions {
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-top: 30px;
+    text-align: center;
+    border-radius: 6px;
+}
+
+#instructions p {
+    font-size: 18px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#icon {
+    font-size: 42px;
+    padding-top: 8px;
+}
+
+#list {
+    text-align: left;
+    background-color: rgba(255, 255, 255, 1);
+    width: 80vw;
+    margin: 0 auto;
+    margin-right: 60px;
+    margin-top: 50px;
+    height: 50vh;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#title {
+    font-size: 36px;
+    transition: 200ms all;
+}
+
+#title:hover {
+    color: #ccc;
+    cursor: pointer;
+}
+
+#date {
+    transition: 200ms all;
+}
+
+.hero.is-primary .subtitle {
+    color: black;
+}
+
+.input {
+    margin-bottom: 20px;
 }
