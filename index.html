@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="ToDo">
+<html lang="en" ng-app="ToDoList">
 <head>
     <meta charset="UTF-8">
     <title>ToDo List App</title>
@@ -16,11 +16,11 @@
    <section>
    <h1 class="title is-1">My ToDo List</h1>
   <div ng-controller="todoController" class="columns">
-      <form name="frm" ng-submit="addToDo()">
+      <form name="frm" ng-submit="addTask()">
       <div class="field column is-8">
       
       <p class="control">
-    <input class="input" type="text" ng-model="newTodo" name="newTodo" placeholder="Add a task.." required>
+    <input class="input" type="text" ng-model="newTask" name="newTask" placeholder="Add a task.." required>
     <input class="input" type="text" ng-model="newDate" name="newDate" placeholder="Add a due date.." required>
   </p>
     <p class="control">
@@ -62,7 +62,7 @@
   <div class="" id="list">
   <ul>
       <li class="subtitle" ng-repeat="todo in todos | orderBy: 'done' track by $index">
-          <input type="checkbox" ng-model="todo.done" />
+          <input ng-hide="editing" type="checkbox" ng-model="todo.done" />
           <span id="title" ng-hide="editing" ng-click="editing = true" ng-class="{'done':todo.done}">{{todo.title}}</span>
           <br>
           <span id="date" ng-hide="editing" ng-click="editing = true" ng-class="{'done':todo.done}"> To Be Completed By: {{todo.date}}</span>

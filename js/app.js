@@ -1,4 +1,4 @@
-angular.module('ToDo',[]).
+angular.module('ToDoList',[]).
     controller('todoController',['$scope','myLocalStorage',function($scope, myLocalStorage){
         console.log(myLocalStorage)
         $scope.todos = myLocalStorage.get('item') || [
@@ -6,10 +6,10 @@ angular.module('ToDo',[]).
         ];
         
         console.log($scope.todos)
-        $scope.addToDo = function(){
-            $scope.todos.push({'title':$scope.newTodo,'date':$scope.newDate,'done':false})
+        $scope.addTask = function(){
+            $scope.todos.push({'title':$scope.newTask,'date':$scope.newDate,'done':false})
             myLocalStorage.set('item', $scope.todos)
-            $scope.newTodo = ''
+            $scope.newTask = ''
             $scope.newDate = ''
             
         }
